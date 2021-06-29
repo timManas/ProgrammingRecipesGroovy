@@ -13,6 +13,12 @@ class ListExample {
         // Create a list
         createList()
 
+        // Iterate over a list
+        iterateList()
+
+        // Passing objects to method
+        passObjectsToMethod()
+
 
         // Useful methods
         useFulMethods()
@@ -28,6 +34,7 @@ class ListExample {
 
     static void useFulMethods() {
         // print list
+        print("\nPrintList -------")
         printList()
 
 
@@ -170,4 +177,66 @@ class ListExample {
         println()
     }
 
+    static void iterateList() {
+        println("Iterating over IntegerList ------ ")
+        for (def i=0; i < integerList.size(); i++) {
+            println("UseArray: " + integerList[i] + "   UseGet: " + integerList.get(i))
+        }
+
+        println("\nIterating over StringList ------ ")
+        for (def i=0; i < stringList.size(); i++) {
+            println("UseArray: " + stringList[i] + "   UseGet: " + stringList.get(i))
+        }
+
+        println("\nIterating over Nested ------ ")
+        for (def i=0; i < nestedList.size(); i++) {
+            println("UseArray: " + nestedList[i] + "   UseGet: " + nestedList.get(i))
+        }
+
+        println("\nIterating over StringList ------ ")
+        for (def i=0; i < mixedList.size(); i++) {
+            println("UseArray: " + mixedList[i] + "   UseGet: " + mixedList.get(i))
+        }
+    }
+    
+    static void passObjectsToMethod() {
+        println("\nPass Objects to Method -------")
+        def newList = passIntList(integerList)
+        def nestedList = passNestedList(nestedList)
+        def mixedList = passMixedList(mixedList)
+        println("newList :" + newList)
+        println("nestedList :" + nestedList)
+        println("mixedList :" + mixedList)
+
+        def newList2 = passIntList2(integerList)
+        def nestedList2 = passIntList3(nestedList)
+        def mixedList2 = passIntList4(mixedList)
+        println("newList2 :" + newList2)
+        println("nestedList2 :" + nestedList2)
+        println("mixedList2 :" + mixedList2)
+    }
+
+    static Object passIntList(Object obj) {
+        return obj
+    }
+
+    static Object passNestedList(Object obj) {
+        return obj
+    }
+
+    static Object passMixedList(Object obj) {
+        return obj
+    }
+
+    static Object passIntList2(List<Integer> list) {
+        return list
+    }
+
+    static Object passIntList3(List<String> integers) {
+        return integers
+    }
+
+    static Object passIntList4(def list) {
+        return list
+    }
 }
